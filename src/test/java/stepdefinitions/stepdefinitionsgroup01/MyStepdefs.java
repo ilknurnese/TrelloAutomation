@@ -9,7 +9,7 @@ public class MyStepdefs {
     @Given("The user navigates to Google")
     public void test() {
 
-        GWD.getDriver().get(ConfigReader.getProperty("googleURL"));
+        GWD.getDriver().get(ConfigReader.getProperty("trelloURL"));
 
     }
 }
