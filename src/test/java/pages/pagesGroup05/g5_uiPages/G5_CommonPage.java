@@ -13,6 +13,7 @@ public class G5_CommonPage {
 
 
 
+
     public G5_HomePage homePage() {
         if (homePage == null) {
             homePage = new G5_HomePage();

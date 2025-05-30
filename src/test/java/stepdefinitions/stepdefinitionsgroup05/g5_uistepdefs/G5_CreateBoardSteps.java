@@ -7,7 +7,7 @@ import pages.pagesGroup05.g5_uiPages.G5_CommonPage;
 import utilities.ConfigReader;
 import utilities.GWD;
 
-public class CreateBoardSteps extends G5_CommonPage {
+public class G5_CreateBoardSteps extends G5_CommonPage {
 
 //   HomePage homePage=new HomePage();
 

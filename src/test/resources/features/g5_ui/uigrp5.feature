@@ -1,7 +1,8 @@
 @createboarduigrp5
 
 Feature: Trello Board Creation
-
+  @g5_smoke
+  @g5_regression
   Scenario: User logs in and creates a new Trello board
     Given the user navigates to the Trello login page
      When the user click the login button

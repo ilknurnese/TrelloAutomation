@@ -8,7 +8,7 @@ import java.util.List;
 public class G5_HomePage extends G5_CommonPage {
 
 
-
+//================Mustafa===================
     @FindBy(xpath = "//a[text()='Log in']")
     public WebElement loginButton;
 
@@ -26,6 +26,8 @@ public class G5_HomePage extends G5_CommonPage {
 
     @FindBy(xpath = "//li[@style='background-color: rgb(153, 255, 0);']")
     public List<WebElement> bar4;
+
+
 
 
 
