@@ -20,7 +20,7 @@ public class G5_CreateCardSteps extends G5_CommonPage {
 
     @When("the user click the login button")
     public void the_user_click_the_login_button() {
-        homePage().loginButton.click();
+        g5HomePage().loginButton.click();
     }
 
     @When("the user logs in with email {string} and password {string}")

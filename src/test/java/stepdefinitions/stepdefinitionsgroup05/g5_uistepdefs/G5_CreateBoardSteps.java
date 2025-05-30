@@ -9,44 +9,27 @@ import utilities.GWD;
 
 public class G5_CreateBoardSteps extends G5_CommonPage {
 
-//   HomePage homePage=new HomePage();
+    @Given("The user is directed to the home page")
+    public void the_user_is_directed_to_the_home_page() {
 
-    @Given("the user navigates to the Trello login page")
-    public void the_user_navigates_to_the_trello_login_page() {
+        GWD.getDriver().get(ConfigReader.getProperty("trelloURL"));
 
-        GWD.getDriver().get(ConfigReader.getProperty("googleURL"));
 
     }
+    @When("Home page titles such as {string} appear")
+    public void home_page_titles_such_as_appear(String string) {
 
-    @When("the user click the login button")
-    public void the_user_click_the_login_button() {
-        homePage().loginButton.click();
+        GWD.getDriver().getTitle().contains("Capture, organize, and tackle your to-dos from anywhere | Trello");
+
     }
 
-    @When("the user logs in with email {string} and password {string}")
-    public void the_user_logs_in_with_email_and_password(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @When("the user clicks on {string}")
-    public void the_user_clicks_on(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @When("the user enters board name {string}")
-    public void the_user_enters_board_name(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @When("the user confirms board creation")
-    public void the_user_confirms_board_creation() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("the board {string} should be visible on the dashboard")
-    public void the_board_should_be_visible_on_the_dashboard(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
+
+
+
+
+
+
+
 
 }
