@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 public class G5_GetTrelloBoardAPI {
 
 
-    public static Response getBoard(String id, String key, String token) {
+    public static <String> Response getBoard(String id, String key, String token) {
         RestAssured.baseURI = "https://api.trello.com";
 
         return given()

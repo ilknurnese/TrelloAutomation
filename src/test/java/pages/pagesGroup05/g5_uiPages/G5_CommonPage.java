@@ -15,7 +15,7 @@ public class G5_CommonPage {
     private G5_HomePage g5HomePage;
     private G5_LoginPage g5LoginPage;
  //================AYSE===================
-                                                    //BU PAGE CLASS  DEKLARE ETMEK ICIN HERKESE 2 SATIR ,YUKARDA ORNEKTE OLDUGU GIBI
+    private G5_CardPage g5CardPage;                                                //BU PAGE CLASS  DEKLARE ETMEK ICIN HERKESE 2 SATIR ,YUKARDA ORNEKTE OLDUGU GIBI
 
 //================BARIS===================
 
@@ -49,7 +49,12 @@ public class G5_CommonPage {
 
 //================AYSE===================
 
-
+    public G5_CardPage g5CardPage() {
+        if (g5CardPage == null) {
+            g5CardPage = new G5_CardPage();
+        }
+        return g5CardPage;
+    }
 
 
 
