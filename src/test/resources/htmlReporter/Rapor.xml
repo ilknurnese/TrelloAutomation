@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="14.828" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Test" name="Test" time="14.7">
+<testsuite name="Cucumber" time="14.96" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Trello Board Tests" name="User creates a board on  trello webpage" time="14.694">
 <system-out><![CDATA[
-Given The user navigates to Google..........................................passed
+When Home page titles such as "Trello, Workspaces, History, Starred, Templates, Create, Boards, Home" appear.passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -1,11 +1,17 @@
-@createboarduigrp5
+@g5_uiboardstests
 
-Feature: Trello Board Creation
+Feature: Trello Board Tests
   @g5_smoke
   @g5_regression
-  Scenario: User logs in and creates a new Trello board
-    Given the user navigates to the Trello login page
-     When the user click the login button
+  Scenario: User creates a board on  trello webpage
+#    Given The user is directed to the home page
+    When Home page titles such as "Trello, Workspaces, History, Starred, Templates, Create, Boards, Home" appear
+
+#    When user Clicks the "Create" button on the home page.
+
+
+
+
 #    When the user logs in with email "your-email@example.com" and password "yourPassword"
 #    And the user clicks on "Create new board"
 #    And the user enters board name "My Automation Board"
