@@ -11,7 +11,7 @@ public class G5_CreateTrelloBoardAPI {
     curl --request POST \
   --url 'https://api.trello.com/1/boards/?name={name}&key=APIKey&token=APIToken'
      */
-    public static Response createBoard(String name, String key, String token) {
+    public static <String> Response createBoard(String name, String key, String token) {
         RestAssured.baseURI = "https://api.trello.com";
 
         return given()
