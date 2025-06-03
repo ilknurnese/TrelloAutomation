@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="9.168" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Trello Board Tests" name="User creates a board on  trello webpage" time="9.098">
+<testsuite name="Cucumber" time="6.949" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Trello Board Tests" name="User creates a board on  trello webpage" time="6.865">
 <system-out><![CDATA[
 When Home page titles such as "Trello, Workspaces, History, Starred, Templates, Create, Boards, Home" appear.passed
 ]]></system-out>
