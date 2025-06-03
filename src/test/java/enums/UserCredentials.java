@@ -1,7 +1,7 @@
 package enums;
 
 public enum UserCredentials {
-    user_mustafa("orkidecloud@gmail.com", "Aurora20"),
+    user_mustafa("fathermountain20@outlook.com", "Florida2025"),
     user_ayse("user2@example.com", "password2"),
     user_maryam("user3@example.com", "password3"),
     user_faruk("user4@example.com", "password4"),
