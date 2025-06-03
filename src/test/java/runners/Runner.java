@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        features = "src/test/resources/features",
         plugin = {
                 "pretty",
                 "html:src/test/resources/htmlReporter/Rapor.html",
@@ -14,7 +15,7 @@ import org.junit.runner.RunWith;
 
         },
         monochrome = true,
-        features = "src/test/resources/features",
+
         glue = {"stepdefinitions","hooks"},
         tags = "@g5_uiboardstests",
         dryRun = false

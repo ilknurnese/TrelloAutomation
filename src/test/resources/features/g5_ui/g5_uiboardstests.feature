@@ -1,19 +1,48 @@
 @g5_uiboardstests
 
-Feature: Trello Board Tests
+Feature: CRTB-001 Trello UI Board Tests
+#  CRBT:Create Board
+
   @g5_smoke
   @g5_regression
-  Scenario: User creates a board on  trello webpage
-#    Given The user is directed to the home page
-    When Home page titles such as "Trello, Workspaces, History, Starred, Templates, Create, Boards, Home" appear
+  Scenario: CRTB-001 TC-001 Create a Board
+#   Given The user is directed to the home page
+    Then Home page titles such as "Trello, Workspaces, History, Starred, Templates, Create, Boards, Home" appear
+    When user Clicks the Create button on the home page
+    When the user verify that Background, Board Title, Visibility titles are visible
+      | Background  |
+      | Board title |
+      | Visibility  |
+    When the user verify that Background, Visibility and Board Title should be selected. The Create button is clicked
+    Then the user verify that the created board appears on the home page
+#    And The user close application
 
-#    When user Clicks the "Create" button on the home page.
+  @g5_smoke
+  @g5_regression
+  Scenario: CRTB-001 TC-002 Board Background Selection
+    When user Clicks the Create button on the home page
+    Then The user verify that Under the Background heading there are sample images and a ... button to view more images and above the Background heading there is a small board example.
+#    And The user close application
 
 
 
 
-#    When the user logs in with email "your-email@example.com" and password "yourPassword"
-#    And the user clicks on "Create new board"
-#    And the user enters board name "My Automation Board"
-#    And the user confirms board creation
-#    Then the board "My Automation Board" should be visible on the dashboard
+
+
+
+
+
+
+#  function turnOnDebugger(a) {
+#  setTimeout(() => {
+#  debugger;
+#  }, 1000); // optional delay
+#  }
+
+#  setTimeout(() => { debugger; }, 1000);
+
+
+
+
+
+

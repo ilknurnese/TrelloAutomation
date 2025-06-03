@@ -27,7 +27,7 @@ public class G5_CommonPage {
 
 
 //================MUSTAFA===================
-
+     private G5_TestBoard g5TestBoard;
 
 
     public G5_HomePage g5HomePage() {
@@ -129,6 +129,12 @@ public class G5_CommonPage {
 
     //================MUSTAFA===================
 
+    public G5_TestBoard g5TestBoard() {
+        if (g5TestBoard == null) {
+            g5TestBoard = new G5_TestBoard();
+        }
+        return g5TestBoard;
+    }
 
 
 
