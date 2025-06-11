@@ -8,10 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import pages.pagesGroup05.g5_uiPages.G5_CommonPage;
-import utilities.ConfigReader;
+import utilities.*;
 import utilities.GWD;
-import utilities.GWD;
-import utilities.WaitUtils;
 
 import static base_urls.TrelloBaseUrl.trelloApiSetUp;
 
