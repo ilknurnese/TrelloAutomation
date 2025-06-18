@@ -17,11 +17,11 @@ public class LoginPage {
 
 
     private By emailInput = By.id("username");
-    private By continueBtn = By.className("css-178ag6o"); // "Devam Et" butonu
+    private By continueBtn = By.className("css-178ag6o");
 
 
     private By passwordInput = By.id("password");
-    private By loginBtn = By.id("login-submit"); // Doğru locator
+    private By loginBtn = By.id("login-submit");
 
 
     public void clickLoginLinkOnHomePage() {
