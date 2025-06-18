@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.util.Base64;
 
 public class TestRailClientG4 {
-    private final String baseUrl = "https://taskproo.testrail.io/";
+    private final String baseUrl = "https://roje.testrail.io/";
     private final String username = "zarslankule@yahoo.com";
-    private final String apiKey = "gz38AgqZMHGAFo7t.S9X-snPIwOR.icYM8RtIAfIA";
+    private final String apiKey = "V1aGQIkGu5ZugGYj4k3i-u8Zv7wrVTQ8HV8ngcpjZ";
 
     public void addResultForTestCase(int runId, int caseId, int statusId, String comment) throws IOException {
         String uri = baseUrl + "index.php?/api/v2/add_result_for_case/" + runId + "/" + caseId;
