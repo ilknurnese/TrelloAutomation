@@ -7,8 +7,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Properties;
 
 public class TestRailClientG4 {
     private final String baseUrl = "https://roje.testrail.io/";
@@ -36,4 +38,3 @@ public class TestRailClientG4 {
         return "Basic " + Base64.getEncoder().encodeToString(auth.getBytes());
     }
 }
-
