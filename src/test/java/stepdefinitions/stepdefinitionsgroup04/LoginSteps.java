@@ -7,16 +7,16 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebElement;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
 import utilities.GWD;
-//import org.openqa.selenium.By;
-//import utilities.TestRailClientG4;
+import org.openqa.selenium.By;
+import utilities.TestRailClientG4;
 
 import java.io.IOException;
 
-//import static utilities.WaitUtils.waitForPageToLoad;
+import static utilities.WaitUtils.waitForPageToLoad;
 import static utilities.WaitUtils.waitForVisibility;
 
 public class LoginSteps {
@@ -52,7 +52,7 @@ public class LoginSteps {
 
     @Then("Testrail case C {int} is updated automatically on login page")
     public void testrailCaseCIsUpdatedAs(int caseId) throws IOException {
-//        TestRailClientG4 client = new TestRailClientG4();
+        TestRailClientG4 client = new TestRailClientG4();
         String cucumberStatus = scenario.getStatus().name();
         int statusId;
         switch (cucumberStatus.toLowerCase()) {
@@ -60,6 +60,6 @@ public class LoginSteps {
             case "failed" -> statusId=5;
             default -> statusId=3;
         };
-//        client.addResultForTestCase(runId, caseId, statusId, "Status set via step definition: " + cucumberStatus);
+        client.addResultForTestCase(runId, caseId, statusId, "Status set via step definition: " + cucumberStatus);
     }
 }
