@@ -13,17 +13,9 @@ import java.util.Base64;
 import java.util.Properties;
 
 public class TestRailClientG4 {
-    private final String baseUrl;
-    private final String username;
-    private final String apiKey;
-
-    public TestRailClientG4() throws IOException {
-        Properties props = new Properties();
-        props.load(new FileInputStream("config.properties"));
-        baseUrl = props.getProperty("testrail.baseUrl");
-        username = props.getProperty("testrail.username");
-        apiKey = props.getProperty("testrail.apiKey");
-    }
+    private final String baseUrl = "https://roje.testrail.io/";
+    private final String username = "zarslankule@yahoo.com";
+    private final String apiKey = "V1aGQIkGu5ZugGYj4k3i-u8Zv7wrVTQ8HV8ngcpjZ";
 
     public void addResultForTestCase(int runId, int caseId, int statusId, String comment) throws IOException {
         String uri = baseUrl + "index.php?/api/v2/add_result_for_case/" + runId + "/" + caseId;
