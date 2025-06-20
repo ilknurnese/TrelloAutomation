@@ -39,6 +39,14 @@ public class BoardPage {
     private final By selectBackground = By.xpath("//button[@data-testid='board-background-select-photo-22']");
     private final By closeBackground = By.xpath("//button[@data-testid='CloseIcon']");
 
+    // === DELETE LOCATORS ===
+    private final By boardOptionsIcon = By.xpath("(//div[@data-testid='OverflowMenuHorizontalIcon'])[4]");
+    private final By closeBoardButton = By.xpath("//div[@class='S1YMKJFPn9WNGk' and text()='Close board']");
+    private final By confirmCloseButton = By.xpath("//button[@data-testid='popover-close-board-confirm']");
+    private final By viewClosedBoardsButton = By.xpath("(//div[@class='xJP6EH9jYQiWkk'])[2]");
+    private final By deleteBoardButton = By.xpath("//button[@data-testid='close-board-delete-board-button']");
+    private final By confirmDeleteButton = By.xpath("//button[@data-testid='close-board-delete-board-confirm-button']");
+
     // === CREATE METHODS ===
     public void clickCreateButton() {
         WaitUtils.waitFor(2);
@@ -138,6 +146,38 @@ public class BoardPage {
         String actualTitle = driver.findElement(boardHeaderTitle).getText();
         if (!actualTitle.equals(expectedTitle)) {
             throw new AssertionError("Güncellenen board ismi beklenenle eşleşmiyor.\nBeklenen: " + expectedTitle + "\nGerçek: " + actualTitle);
+        }
+    }
+
+    // === DELETE METHODS ===
+    public void closeBoard() {
+        WaitUtils.waitFor(2);
+        driver.get("https://trello.com/u/boards");
+        WaitUtils.waitFor(2);
+        driver.findElement(boardOptionsIcon).click();
+        WaitUtils.waitFor(2);
+        driver.findElement(closeBoardButton).click();
+        WaitUtils.waitFor(2);
+        driver.findElement(confirmCloseButton).click();
+    }
+
+    public void openClosedBoards() {
+        WaitUtils.waitFor(2);
+        driver.findElement(viewClosedBoardsButton).click();
+    }
+
+    public void deleteClosedBoard() {
+        WaitUtils.waitFor(2);
+        driver.findElement(deleteBoardButton).click();
+        WaitUtils.waitFor(1);
+        driver.findElement(confirmDeleteButton).click();
+    }
+
+    public void verifyBoardDeleted(String deletedTitle) {
+        WaitUtils.waitFor(3);
+        boolean isDeleted = driver.getPageSource().contains(deletedTitle);
+        if (isDeleted) {
+            throw new AssertionError("Board silinemedi: " + deletedTitle + " hâlâ listede.");
         }
     }
 }
