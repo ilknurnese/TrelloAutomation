@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import pages.pagesGroup04.BoardPage;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
+import utilities.WaitUtils;
 
 public class CreateBoardSteps {
 
@@ -20,14 +21,22 @@ public class CreateBoardSteps {
 
     @When("kullanici yeni bir board olusturur")
     public void kullanici_yeni_bir_board_olusturur() {
-        boardPage.clickCreateButton();
-        boardPage.clickCreateBoardOption();
-        boardPage.openBackgroundMenu();
-        boardPage.selectBackgroundImage();
+        WaitUtils.waitFor(2);
+        boardPage.clickOn("Create Button");
+        WaitUtils.waitFor(2);
+        boardPage.clickOn("Create Board Option");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Menu");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Image");
+        WaitUtils.waitFor(1);
         boardPage.enterBoardTitle("Group4");
-        boardPage.openVisibilityDropdown();
-        boardPage.selectVisibilityOption();
-        boardPage.clickCreateBoardButton();
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Visibility Dropdown");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Visibility Option");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Create Board button");
     }
 
     @Then("kullanici olusturulan board'u dogrular")

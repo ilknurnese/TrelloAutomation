@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import pages.pagesGroup04.BoardPage;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
+import utilities.WaitUtils;
 
 public class UpdateBoardSteps {
 
@@ -22,9 +23,11 @@ public class UpdateBoardSteps {
     public void kullanici_bir_boardu_gunceller() {
         boardPage.navigateToExistingBoard();
         boardPage.updateBoardTitle("Group4 Updated");
-        boardPage.toggleStarIcon();
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Star Icon");
         boardPage.changeVisibilityToPrivate();
-        boardPage.openBoardMenu();
+        WaitUtils.waitFor(2);
+        boardPage.clickOn("Board Menu");
         boardPage.changeBoardBackground();
     }
 
