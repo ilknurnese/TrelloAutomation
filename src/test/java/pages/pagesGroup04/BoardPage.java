@@ -22,7 +22,15 @@ public class BoardPage {
     private final By visibilitySelectOption = By.xpath("(//select[@id='1750367860185-create-board-select-visibility'])[2]");
     private final By createBoardButton = By.xpath("//button[@data-testid='create-board-submit-button']");
     private final By boardHeaderTitle = By.xpath("//h1[@data-testid='board-name-display']");
+    private final By shareButton = By.xpath("//button[@data-testid='create-board-submit-button']");
 
+    public void clickOn(String element){
+        switch (element) {
+            case "Share Button" -> driver.findElement(shareButton).click();
+            case "Create Button" -> driver.findElement(createButton).click();
+            case "Create Board Option" -> driver.findElement(createBoardOption).click();
+        }
+    }
     public void clickCreateButton() {
         WaitUtils.waitFor(2);
         driver.findElement(createButton).click();

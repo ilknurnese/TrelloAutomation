@@ -1,6 +1,6 @@
 Feature: Kullanici girisi
 
-  @group4_login
+  @group4_login @SmokeTest
   Scenario: C1122 - Gecerli bilgilerle kullanici girisi
     Given kullanici login sayfasina gider
     When kullanici gecerli bilgilerle giris yapar
