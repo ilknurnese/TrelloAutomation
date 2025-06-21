@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Proje yapılandırma dosyası (şifre içerdiği için)
+configuration.properties
