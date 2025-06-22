@@ -7,16 +7,13 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
 import utilities.GWD;
-import org.openqa.selenium.By;
 import utilities.TestRailClientG4;
 
 import java.io.IOException;
 
-import static utilities.WaitUtils.waitForPageToLoad;
 import static utilities.WaitUtils.waitForVisibility;
 
 public class LoginSteps {
