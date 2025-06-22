@@ -11,14 +11,6 @@ public class UpdateBoardSteps {
     BoardPage boardPage = new BoardPage();
     LoginPage loginPage = new LoginPage();
 
-    @Given("kullanici login olur")
-    public void kullanici_login_olur() {
-        loginPage.loginWithCredentials(
-                ConfigReader.getProperty("email"),
-                ConfigReader.getProperty("password")
-        );
-    }
-
     @When("kullanici bir board'u gunceller")
     public void kullanici_bir_boardu_gunceller() {
         boardPage.navigateToExistingBoard();
