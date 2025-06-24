@@ -16,7 +16,7 @@ public class BoardPage {
     }
 
     // === CREATE LOCATORS ===
-    private final By createButton = By.xpath("//p[text()='Create']");
+    private final By createButton = By.xpath("//button[@data-testid='header-create-menu-button']");
     private final By createBoardOption = By.xpath("//button[@data-testid='header-create-board-button']");
     private final By backgroundMenuIcon = By.xpath("(//div[@data-testid='OverflowMenuHorizontalIcon'])[1]");
     private final By backgroundImage = By.xpath("(//div[@class='hy7T0kL4IW58ix'])[1]");
