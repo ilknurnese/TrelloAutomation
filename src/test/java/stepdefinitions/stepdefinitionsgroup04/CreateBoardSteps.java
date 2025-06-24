@@ -14,8 +14,8 @@ public class CreateBoardSteps {
     @Given("kullanici login olur")
     public void kullanici_login_olur() {
         loginPage.loginWithCredentials(
-                ConfigReader.getProperty("email"),
-                ConfigReader.getProperty("password")
+                ConfigReader.getProperty("group4_email"),
+                ConfigReader.getProperty("group4_password")
         );
     }
 
@@ -39,8 +39,32 @@ public class CreateBoardSteps {
         boardPage.clickOn("Create Board button");
     }
 
+
     @Then("kullanici olusturulan board'u dogrular")
     public void kullanici_olusturulan_boardu_dogrular() {
         boardPage.verifyBoardCreated("Group4");
+    }
+
+    @When("kullanici {string} isimli yeni bir board olusturur")
+    public void kullaniciIsimliYeniBirBoardOlusturur(String boardName) {
+        WaitUtils.waitFor(3);
+        boardPage.clickOn("Create Button");
+        WaitUtils.waitFor(2);
+        boardPage.clickOn("Create Board Option");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Menu");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Image");
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Cross Button");
+        WaitUtils.waitFor(1);
+        boardPage.enterBoardTitle(boardName);
+        WaitUtils.waitFor(1);
+        boardPage.clickOn("Create Board button");
+    }
+
+    @Then("kullanici olusturulan {string} isimli board'u dogrular")
+    public void kullaniciOlusturulanIsimliBoardUDogrular(String boardName) {
+        boardPage.verifyBoardCreated(boardName);
     }
 }

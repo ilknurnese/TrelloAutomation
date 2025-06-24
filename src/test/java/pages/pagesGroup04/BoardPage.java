@@ -16,12 +16,14 @@ public class BoardPage {
     }
 
     // === CREATE LOCATORS ===
-    private final By createButton = By.xpath("//p[text()='Create']");
+    private final By createButton = By.xpath("//button[@data-testid='header-create-menu-button']");
     private final By createBoardOption = By.xpath("//button[@data-testid='header-create-board-button']");
-    private final By backgroundMenuIcon = By.xpath("(//div[@data-testid='OverflowMenuHorizontalIcon'])[1]");
+    private final By backgroundMenuIcon = By.xpath("//*[@data-testid='OverflowMenuHorizontalIcon']");
     private final By backgroundImage = By.xpath("(//div[@class='hy7T0kL4IW58ix'])[1]");
-    private final By boardTitleInput = By.xpath("(//input[contains(@class,'nch-textfield__input')])[1]");
-    private final By visibilityDropdown = By.xpath("(//div[contains(@class,'css-1c8bys3-singleValue')])[2]");
+    private final By backgroundCrossButton = By.xpath("(//button[@class='q7bda2GIwjst4f zKzcyhLUVG0jDw'])[2]");
+    private final By createBoardCrossButton = By.xpath("(//button[@class='q7bda2GIwjst4f zKzcyhLUVG0jDw'])[1]");
+    private final By boardTitleInput = By.xpath("//input[@data-testid='create-board-title-input']");
+    private final By visibilityDropdown = By.xpath("//*[@data-testid='create-board-select-visibility']");
     private final By visibilitySelectOption = By.xpath("(//select[@id='1750367860185-create-board-select-visibility'])[2]");
     private final By createBoardButton = By.xpath("//button[@data-testid='create-board-submit-button']");
     private final By boardHeaderTitle = By.xpath("//h1[@data-testid='board-name-display']");
@@ -58,6 +60,8 @@ public class BoardPage {
             case "Create Board Option" -> driver.findElement(createBoardOption).click();
             case "Background Menu" -> driver.findElement(backgroundMenuIcon).click();
             case "Background Image" -> driver.findElement(backgroundImage).click();
+            case "Board Create Cross Button" -> driver.findElement(createBoardCrossButton).click();
+            case "Background Cross Button" -> driver.findElement(backgroundCrossButton).click();
             case "Visibility Dropdown" -> driver.findElement(visibilityDropdown).click();
             case "Visibility Option" -> driver.findElement(visibilitySelectOption).click();
             case "Create Board button" -> driver.findElement(createBoardButton).click();
@@ -71,7 +75,8 @@ public class BoardPage {
     }
 
     public void enterBoardTitle(String title) {
-        WaitUtils.waitFor(1);
+        WaitUtils.waitFor(2);
+        driver.findElement(boardTitleInput).click();
         driver.findElement(boardTitleInput).sendKeys(title);
     }
 
