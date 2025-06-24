@@ -47,7 +47,7 @@ public class CreateBoardSteps {
 
     @When("kullanici {string} isimli yeni bir board olusturur")
     public void kullaniciIsimliYeniBirBoardOlusturur(String boardName) {
-        WaitUtils.waitFor(5);
+        WaitUtils.waitFor(3);
         boardPage.clickOn("Create Button");
         WaitUtils.waitFor(2);
         boardPage.clickOn("Create Board Option");
@@ -56,11 +56,9 @@ public class CreateBoardSteps {
         WaitUtils.waitFor(1);
         boardPage.clickOn("Background Image");
         WaitUtils.waitFor(1);
-        boardPage.enterBoardTitle("Group4");
+        boardPage.clickOn("Background Cross Button");
         WaitUtils.waitFor(1);
-        boardPage.clickOn("Visibility Dropdown");
-        WaitUtils.waitFor(1);
-        boardPage.clickOn("Visibility Option");
+        boardPage.enterBoardTitle(boardName);
         WaitUtils.waitFor(1);
         boardPage.clickOn("Create Board button");
     }
