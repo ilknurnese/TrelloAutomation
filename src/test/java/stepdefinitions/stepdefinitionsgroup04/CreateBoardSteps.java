@@ -47,19 +47,13 @@ public class CreateBoardSteps {
 
     @When("kullanici {string} isimli yeni bir board olusturur")
     public void kullaniciIsimliYeniBirBoardOlusturur(String boardName) {
-        WaitUtils.waitFor(3);
-        boardPage.clickOn("Create Button");
         WaitUtils.waitFor(2);
+        boardPage.clickOn("Create Button");
         boardPage.clickOn("Create Board Option");
-        WaitUtils.waitFor(1);
         boardPage.clickOn("Background Menu");
-        WaitUtils.waitFor(1);
         boardPage.clickOn("Background Image");
-        WaitUtils.waitFor(1);
         boardPage.clickOn("Background Cross Button");
-        WaitUtils.waitFor(1);
         boardPage.enterBoardTitle(boardName);
-        WaitUtils.waitFor(1);
         boardPage.clickOn("Create Board button");
     }
 

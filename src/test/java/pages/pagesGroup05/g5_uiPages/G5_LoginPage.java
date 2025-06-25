@@ -88,7 +88,7 @@ public class G5_LoginPage extends G5_CommonPage {
 
 
     //================MUSTAFA===================
-    @FindBy(xpath = "//input[@id='username']")
+    @FindBy(xpath = "//input[@id='username-uid1']")
     public WebElement inputMailBox;
 
     @FindBy(id ="login-submit")
