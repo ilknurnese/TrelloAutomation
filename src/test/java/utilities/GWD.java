@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class GWD {
     private static ThreadLocal<WebDriver> threadDriver= new ThreadLocal<>();
@@ -31,6 +32,8 @@ public class GWD {
 
             threadDriver.get().manage().window().maximize();
             threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout")));
+            threadDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getIntProperty("implicit.wait")));
+
         }
 
         return threadDriver.get();
@@ -47,9 +50,9 @@ public class GWD {
         if (threadDriver.get() != null) {
             threadDriver.get().quit();
 
-            WebDriver onTheLine = threadDriver.get();
-            onTheLine = null;
-            threadDriver.set(onTheLine);
+//            WebDriver onTheLine = threadDriver.get();
+//            onTheLine = null;
+            threadDriver.set(null);
         }
     }
 }

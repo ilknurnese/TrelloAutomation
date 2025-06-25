@@ -25,7 +25,7 @@ public class BoardPage {
     private final By boardTitleInput = By.xpath("//input[@data-testid='create-board-title-input']");
     private final By visibilityDropdown = By.xpath("//*[@data-testid='create-board-select-visibility']");
     private final By visibilitySelectOption = By.xpath("(//select[@id='1750367860185-create-board-select-visibility'])[2]");
-    private final By createBoardButton = By.xpath("//button[@data-testid='create-board-submit-button']");
+    private final By createBoardButton = By.xpath("//button[@data-testid='create-from-template-button']");
     private final By boardHeaderTitle = By.xpath("//h1[@data-testid='board-name-display']");
 
     // === UPDATE LOCATORS ===

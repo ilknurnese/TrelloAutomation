@@ -15,7 +15,7 @@ public class LoginPage {
     }
 
     private final By loginLinkOnHomePage = By.xpath("//a[text()='Log in']");
-    private final By emailInput = By.id("username");
+    private final By emailInput = By.id("username-uid1");
     private final By continueBtn = By.className("css-178ag6o"); // "Devam Et" butonu
     private final By passwordInput = By.id("password");
     private final By loginBtn = By.id("login-submit"); // Doğru locator
