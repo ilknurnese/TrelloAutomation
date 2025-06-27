@@ -1,13 +1,13 @@
 Feature: Kullanici board islemlerini gerceklestirir
 
   @group4_create
-  Scenario: Kullanici yeni bir board olusturur (kisa test)
+  Scenario: Kullanici yeni bir board olusturur
     Given kullanici login olur
     When kullanici yeni bir board olusturur
     Then kullanici olusturulan board'u dogrular
 
   @group4_update
-  Scenario: Kullanici mevcut board'u gunceller (kisa test)
+  Scenario: Kullanici mevcut board'u gunceller
     Given kullanici login olur
     When kullanici bir board'u gunceller
     Then kullanici guncellenen board'u dogrular
