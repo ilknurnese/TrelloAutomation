@@ -42,7 +42,7 @@ public class BoardPage {
     private final By closeBackground = By.xpath("//button[@data-testid='CloseIcon']");
 
     // === DELETE LOCATORS ===
-    private final By boardOptionsIcon = By.xpath("(//div[@data-testid='OverflowMenuHorizontalIcon'])[4]");
+    private final By boardOptionsIcon = By.xpath("(//*[@data-testid='OverflowMenuHorizontalIcon'])");
     private final By closeBoardButton = By.xpath("//div[@class='S1YMKJFPn9WNGk' and text()='Close board']");
     private final By confirmCloseButton = By.xpath("//button[@data-testid='popover-close-board-confirm']");
     private final By viewClosedBoardsButton = By.xpath("(//div[@class='xJP6EH9jYQiWkk'])[2]");
@@ -72,6 +72,11 @@ public class BoardPage {
             case "Private Option" -> driver.findElement(privateOption).click();
             case "Change Background Button" -> driver.findElement(changeBackgroundButton).click();
         }
+    }
+
+    public void clickOnText(String text){
+        driver.findElement(By.xpath("//*[@title="+text+"]")).click();
+
     }
 
     public void enterBoardTitle(String title) {
@@ -143,6 +148,8 @@ public class BoardPage {
         WaitUtils.waitFor(2);
         driver.findElement(confirmCloseButton).click();
     }
+
+
 
     public void openClosedBoards() {
         WaitUtils.waitFor(2);

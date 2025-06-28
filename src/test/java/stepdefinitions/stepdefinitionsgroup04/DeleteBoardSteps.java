@@ -25,6 +25,13 @@ public class DeleteBoardSteps {
         boardPage.deleteClosedBoard();
     }
 
+    @When("kullanici bir {string} isimli board'u kapatir ve siler")
+    public void kullanici_isimli_boardu_kapatir_ve_siler(String boardName) {
+        boardPage.closeBoard();
+        boardPage.openClosedBoards();
+        boardPage.deleteClosedBoard();
+    }
+
     @Then("kullanici board'un silindigini dogrular")
     public void kullanici_boardun_silindigini_dogrular() {
         boardPage.verifyBoardDeleted("Group4 Updated"); // ya da dinamik title
