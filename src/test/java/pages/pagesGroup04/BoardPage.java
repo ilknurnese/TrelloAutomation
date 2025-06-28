@@ -1,11 +1,14 @@
 package pages.pagesGroup04;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utilities.GWD;
 import utilities.WaitUtils;
+
+import java.util.List;
 
 public class BoardPage {
 
@@ -25,7 +28,7 @@ public class BoardPage {
     private final By boardTitleInput = By.xpath("//input[@data-testid='create-board-title-input']");
     private final By visibilityDropdown = By.xpath("//*[@data-testid='create-board-select-visibility']");
     private final By visibilitySelectOption = By.xpath("(//select[@id='1750367860185-create-board-select-visibility'])[2]");
-    private final By createBoardButton = By.xpath("//button[@data-testid='create-from-template-button']");
+    private final By createBoardButton = By.xpath("//button[@data-testid='create-board-submit-button']");
     private final By boardHeaderTitle = By.xpath("//h1[@data-testid='board-name-display']");
 
     // === UPDATE LOCATORS ===
@@ -42,12 +45,13 @@ public class BoardPage {
     private final By closeBackground = By.xpath("//button[@data-testid='CloseIcon']");
 
     // === DELETE LOCATORS ===
-    private final By boardOptionsIcon = By.xpath("(//div[@data-testid='OverflowMenuHorizontalIcon'])[4]");
-    private final By closeBoardButton = By.xpath("//div[@class='S1YMKJFPn9WNGk' and text()='Close board']");
+    private final By boardOptionsIcon = By.xpath("(//*[@data-testid='OverflowMenuHorizontalIcon'])");
+    private final By closeBoardButton = By.xpath("(//*[@class='S1YMKJFPn9WNGk'])[17]");
     private final By confirmCloseButton = By.xpath("//button[@data-testid='popover-close-board-confirm']");
-    private final By viewClosedBoardsButton = By.xpath("(//div[@class='xJP6EH9jYQiWkk'])[2]");
+    private final By viewClosedBoardsButton = By.xpath("//*[@class='bxgKMAm3lq5BpA SEj5vUdI3VvxDc']");
     private final By deleteBoardButton = By.xpath("//button[@data-testid='close-board-delete-board-button']");
     private final By confirmDeleteButton = By.xpath("//button[@data-testid='close-board-delete-board-confirm-button']");
+    private final By boardNameToDelete = By.xpath("//a[@class='_9guxMrHBJQYHxg']");
 
     // === ADD MEMBER LOCATORS === //
     private final By shareButton = By.xpath("//button[@data-testid='create-board-submit-button']");
@@ -71,7 +75,13 @@ public class BoardPage {
             case "Lock Icon" -> driver.findElement(lockIcon).click();
             case "Private Option" -> driver.findElement(privateOption).click();
             case "Change Background Button" -> driver.findElement(changeBackgroundButton).click();
+            case "Board name on delete list" -> driver.findElement(boardNameToDelete).click();
         }
+    }
+
+    public void clickOnText(String text){
+        driver.findElement(By.xpath("//*[@title="+text+"]")).click();
+
     }
 
     public void enterBoardTitle(String title) {
@@ -144,6 +154,20 @@ public class BoardPage {
         driver.findElement(confirmCloseButton).click();
     }
 
+    public void closeBoardZiya() {
+        WaitUtils.waitFor(2);
+        driver.findElement(boardOptionsIcon).click();
+        WaitUtils.waitFor(2);
+        driver.findElement(closeBoardButton).click();
+        WaitUtils.waitFor(2);
+        driver.findElement(confirmCloseButton).click();
+    }
+
+    public void goToBoardsPage() {
+        WaitUtils.waitFor(2);
+        driver.get("https://trello.com/u/boards");
+    }
+
     public void openClosedBoards() {
         WaitUtils.waitFor(2);
         driver.findElement(viewClosedBoardsButton).click();
@@ -156,11 +180,45 @@ public class BoardPage {
         driver.findElement(confirmDeleteButton).click();
     }
 
+    public void deleteClosedNamedBoard(String boardName) {
+        WaitUtils.waitFor(2);
+        List<WebElement> boardNames = driver.findElements(boardNameToDelete);
+        int i = 0;
+        for (WebElement el : boardNames) {
+            String txt = el.getText();
+            if (txt.equals(boardName)) {
+                i = boardNames.indexOf(el);
+                System.out.println("Board to delete is found");
+                break;
+            }
+        }
+        List<WebElement> deleteButtons = driver.findElements(deleteBoardButton);
+        WebElement delButton = deleteButtons.get(i);
+        System.out.println("Board name to delete : " + boardNames.get(i).getText());
+        delButton.click();
+        WaitUtils.waitFor(1);
+        driver.findElement(confirmDeleteButton).click();
+    }
+
     public void verifyBoardDeleted(String deletedTitle) {
         WaitUtils.waitFor(3);
         boolean isDeleted = driver.getPageSource().contains(deletedTitle);
         if (isDeleted) {
             throw new AssertionError("Board silinemedi: " + deletedTitle + " hâlâ listede.");
         }
+    }
+
+    public void verifyBoardIsDeleted(String boardName) {
+        WaitUtils.waitFor(2);
+        List<WebElement> boardNames = driver.findElements(boardNameToDelete);
+        boolean isDeleted = true;
+        for (WebElement el : boardNames) {
+            String txt = el.getText();
+            if (txt.equals(boardName)) {
+                isDeleted = false;
+                break;
+            }
+        }
+        Assert.assertTrue("Board is not deleted",isDeleted);
     }
 }
