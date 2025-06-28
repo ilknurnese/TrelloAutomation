@@ -27,4 +27,6 @@ public class UpdateBoardSteps {
     public void kullanici_guncellenen_boardu_dogrular() {
         boardPage.verifyBoardUpdated("Group4 Updated");
     }
+
+
 }
