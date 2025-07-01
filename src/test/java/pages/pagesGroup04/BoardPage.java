@@ -54,7 +54,16 @@ public class BoardPage {
     private final By boardNameToDelete = By.xpath("//a[@class='_9guxMrHBJQYHxg']");
 
     // === ADD MEMBER LOCATORS === //
-    private final By shareButton = By.xpath("//button[@data-testid='create-board-submit-button']");
+    private final By shareButton = By.xpath("//button[@data-testid='board-share-button']");
+    private final By addMemberInput = By.xpath("//input[@data-testid='add-members-input']");
+    private final By memberOnDropdown = By.xpath("//*[@data-testid='team-invitee-option' and @class='autocomplete-option']");
+    private final By shareOnShareScreen = By.xpath("//button[@data-testid='team-invite-submit-button']");
+    private final By memberListNames = By.xpath("//*[@data-testid='member-list-item-full-name']");
+    private final By memberPermissionDropdown = By.xpath("//*[@data-testid='board-permission-selector-dropdown--trigger']");
+    private int memberOrder = 3;
+    private final By removeMemberFromBoard = By.xpath("(//button[@class='css-19xwver'])[2]");
+    private final By removeButton = By.xpath("//button[@data-testid='confirm-remove-deactivated-member-button']");
+    private final By closeShareButton = By.xpath("//button[@data-testid='board-invite-modal-close-button']");
 
     // === CREATE METHODS ===
     public void clickOn(String element){
@@ -76,12 +85,16 @@ public class BoardPage {
             case "Private Option" -> driver.findElement(privateOption).click();
             case "Change Background Button" -> driver.findElement(changeBackgroundButton).click();
             case "Board name on delete list" -> driver.findElement(boardNameToDelete).click();
+            case "Share button on share screen" -> driver.findElement(shareOnShareScreen).click();
+            case "Member Permission Dropdown" -> driver.findElement(By.xpath("(//*[@data-testid='board-permission-selector-dropdown--trigger'])["+(memberOrder+2)+"]")).click();
+            case "Remove From Board" -> driver.findElement(removeMemberFromBoard).click();
+            case "Remove Button" -> driver.findElement(removeButton).click();
+            case "Close Share Button" -> driver.findElement(closeShareButton).click();
         }
     }
 
     public void clickOnText(String text){
-        driver.findElement(By.xpath("//*[@title="+text+"]")).click();
-
+        driver.findElement(By.xpath("//*[@title='"+text+"']")).click();
     }
 
     public void enterBoardTitle(String title) {
@@ -90,6 +103,13 @@ public class BoardPage {
         driver.findElement(boardTitleInput).sendKeys(title);
     }
 
+    public void enterMemberData(String title) {
+        WaitUtils.waitFor(2);
+        driver.findElement(addMemberInput).click();
+        driver.findElement(addMemberInput).sendKeys(title);
+        WaitUtils.waitFor(2);
+        driver.findElement(memberOnDropdown).click();
+    }
 
     public void verifyBoardCreated(String expectedTitle) {
         WaitUtils.waitFor(3);
@@ -208,7 +228,7 @@ public class BoardPage {
         }
     }
 
-    public void verifyBoardIsDeleted(String boardName) {
+    public boolean verifyBoardIsDeleted(String boardName) {
         WaitUtils.waitFor(2);
         List<WebElement> boardNames = driver.findElements(boardNameToDelete);
         boolean isDeleted = true;
@@ -219,6 +239,23 @@ public class BoardPage {
                 break;
             }
         }
-        Assert.assertTrue("Board is not deleted",isDeleted);
+        return isDeleted;
+    }
+
+    public boolean checkMemberOnList(String member) {
+        List<WebElement> members = driver.findElements(memberListNames);
+        boolean isMemberExists = false;
+        for (WebElement el : members) {
+            String txt = el.getText();
+            if (txt.contains(member)) {
+                isMemberExists = true;
+                memberOrder = members.indexOf(el);
+                System.out.println("Index of member on member list = " + memberOrder
+                );
+                break;
+            }
+        }
+        System.out.println(isMemberExists);
+        return isMemberExists;
     }
 }

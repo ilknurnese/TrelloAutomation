@@ -1,6 +1,7 @@
 package stepdefinitions.stepdefinitionsgroup04;
 
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import pages.pagesGroup04.BoardPage;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
@@ -41,6 +42,7 @@ public class DeleteBoardSteps {
     @Then("kullanici {string} isimli board'un silindigini dogrular")
     public void kullaniciIsimliBoardUnSilindiginiDogrular(String boardName) {
         boardPage.goToBoardsPage();
-        boardPage.verifyBoardIsDeleted(boardName);
+        boolean isDeleted = boardPage.verifyBoardIsDeleted(boardName);
+        Assert.assertTrue("Board is not deleted",isDeleted);
     }
 }
