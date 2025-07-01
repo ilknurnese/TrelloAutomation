@@ -30,11 +30,13 @@ public class CreateBoardSteps {
         WaitUtils.waitFor(1);
         boardPage.clickOn("Background Image");
         WaitUtils.waitFor(1);
+        boardPage.clickOn("Background Cross Button");
+        WaitUtils.waitFor(1);
         boardPage.enterBoardTitle("Group4");
         WaitUtils.waitFor(1);
         boardPage.clickOn("Visibility Dropdown");
         WaitUtils.waitFor(1);
-        boardPage.clickOn("Visibility Option");
+        boardPage.clickOn("Visibility Dropdown");
         WaitUtils.waitFor(1);
         boardPage.clickOn("Create Board button");
     }
