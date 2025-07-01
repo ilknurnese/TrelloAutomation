@@ -1,6 +1,7 @@
 package stepdefinitions.stepdefinitionsgroup04;
 
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import pages.pagesGroup04.BoardPage;
 import pages.pagesGroup04.LoginPage;
 import utilities.ConfigReader;
@@ -29,4 +30,36 @@ public class UpdateBoardSteps {
     }
 
 
+    @Given("kullanıcı {string} isimli boardda üye ekleme ekranına gelir")
+    public void kullanıcıIsimliBoarddaÜyeEklemeEkranınaGelir(String boardName) {
+        boardPage.goToBoardsPage();
+        boardPage.clickOnText(boardName);
+        boardPage.clickOn("Share Button");
+    }
+
+    @When("kullanıcı {string} üyesini {string} verisini girerek ekler")
+    public void kullanıcıÜyesiniVerisiniGirerekEkler(String member, String type) {
+        boardPage.enterMemberData(member);
+        boardPage.clickOn("Share button on share screen");
+    }
+
+    @Then("Kullanıcı {string} isimli üyenin eklendiğini doğrular")
+    public void kullanıcıIsimliÜyeninEklendiğiniDoğrular(String member) {
+        WaitUtils.waitFor(2);
+        Assert.assertTrue("İsim listede görüntülenemedi",boardPage.checkMemberOnList(member));
+        boardPage.clickOn("Close Share Button");
+    }
+
+    @When("kullanıcı eklenen {string} isimli üyeyi üye listesinden siler")
+    public void kullanıcıEklenenIsimliÜyeyiÜyeListesindenSiler(String arg0) {
+        boardPage.clickOn("Member Permission Dropdown");
+        boardPage.clickOn("Remove From Board");
+        boardPage.clickOn("Remove Button");
+    }
+
+    @Then("kullanıcı {string} isimli üyenin silindiğini doğrular")
+    public void kullanıcıIsimliÜyeninSilindiğiniDoğrular(String member) {
+        WaitUtils.waitFor(2);
+        Assert.assertFalse("İsim listede görünüyor",boardPage.checkMemberOnList(member));
+    }
 }

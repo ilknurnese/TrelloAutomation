@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TestStepDefs {
 
-    private final int runId = 5;
+    private final int runId = 1;
     private Scenario scenario;
 
     @Before
